@@ -70,7 +70,7 @@ export default function Signup() {
         );
 
         if (formData.profilePicture) {
-            formDataToSend.append("profilePicture", formData.profilePicture);
+            formDataToSend.append("file", formData.profilePicture);
         }
 
         try {
