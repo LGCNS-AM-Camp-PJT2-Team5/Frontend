@@ -10,4 +10,4 @@ COPY . .
 ENV NODE_ENV=development
 ENV HOST=0.0.0.0
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "dev", "--", "--host" ]
