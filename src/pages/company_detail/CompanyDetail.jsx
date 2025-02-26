@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Title from "../../components/common/Title";
+import ReactMarkdown from "react-markdown";
 
 export default function CompanyDetail() {
   const { companyId } = useParams();
@@ -29,14 +31,39 @@ export default function CompanyDetail() {
   if (loading) return <p className="loading">로딩 중...</p>;
   if (error) return <p className="error">{error}</p>;
 
+  // 커스텀 컴포넌트로 볼드체 앞에 압정 추가
+  const CustomBold = ({ children }) => (
+    <strong>
+      📌 {children}
+    </strong>
+  );
+
+  // 커스텀 컴포넌트로 목록 앞에 아이콘 추가
+  const CustomListItem = ({ children }) => (
+    <li style={{ marginBottom: "8px", listStyleType: "none" }}>
+      ☑️ {children}
+    </li>
+  );
+
   return (
     <div className="company-detail-container">
-      <p className="company-name">{company.name}</p>
-      <p className="company-description">{company.description}</p>
+      <Title mainTitle2={company.name} />
+      
+      {/* 회사 설명 섹션 */}
+      <div className="company-description">
+        <ReactMarkdown
+          components={{
+            strong: CustomBold, // strong 태그를 커스터마이징
+            li: CustomListItem, // 목록(li) 태그를 커스터마이징
+          }}
+        >
+          {company.description}
+        </ReactMarkdown>
+      </div>
 
       {/* 기업 뉴스 섹션 */}
       <div className="company-news-section">
-        <h2 
+        <h2
           className="news-link"
           onClick={() => navigate(`/company/${companyId}/news`, { state: { company, news } })}
           style={{ cursor: "pointer", color: "#6a5acd", textDecoration: "underline" }}
