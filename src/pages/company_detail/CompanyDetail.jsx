@@ -73,7 +73,7 @@ export default function CompanyDetail() {
             ➕ {company.name} 기사 더 보기
           </h2>
 
-          <div className="news-list">
+          <div className="news-list" id="news-list">
             {news.slice(0, 3).map((item, index) => (
               <a
                 key={index}
@@ -84,7 +84,7 @@ export default function CompanyDetail() {
               >
                 <h3>{item.title}</h3>
                 <p className="news-date">{new Date(item.publishedDate).toLocaleDateString()}</p>
-                <div >자세히 보기 →</div>
+                <div style={{color:"#888"}}>자세히 보기 →</div>
               </a>
             ))}
           </div>

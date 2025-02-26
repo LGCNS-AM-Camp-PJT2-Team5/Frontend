@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import "./CompanyDetail.css";
 import Title from "../../components/common/Title";
+import "./CompanyNews.css";
 
 export default function CompanyNews() {
   const location = useLocation();
@@ -26,7 +27,7 @@ export default function CompanyNews() {
           >
             <h3>{item.title}</h3>
             <p className="news-date">{new Date(item.publishedDate).toLocaleDateString()}</p>
-            <p className="news-link">자세히 보기 →</p>
+            <div style={{color:"#888"}}>자세히 보기 →</div>
           </a>
         ))}
       </div>
