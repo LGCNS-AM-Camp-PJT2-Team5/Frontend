@@ -25,6 +25,11 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
+.company-description-download{
+  display: flex;
+  justify-content: center;
+}
+
   .loading, .error {
     text-align: center;
     font-size: 18px;

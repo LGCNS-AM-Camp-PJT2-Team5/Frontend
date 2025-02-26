@@ -4,6 +4,7 @@ import axios from "axios";
 import Title from "../../components/common/Title";
 import ReactMarkdown from "react-markdown";
 import "./CompanyDetail.css";
+import PurpleBtn from "../../components/common/PurpleBtn";
 
 export default function CompanyDetail() {
   const { companyId } = useParams();
@@ -45,6 +46,23 @@ export default function CompanyDetail() {
       ☑️ {children}
     </li>
   );
+  
+  // 기업 요약 정보 다운로드 함수
+  const downloadDescription = () => {
+    if (!company || !company.description) return;
+
+    const blob = new Blob([company.description], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${company.name}_설명.txt`;
+    document.body.appendChild(a);
+    a.click();
+
+    URL.revokeObjectURL(url);
+    document.body.removeChild(a);
+  };
 
   return (
     <div className="company-detail-container-wrapper">
@@ -61,6 +79,10 @@ export default function CompanyDetail() {
           >
             {company.description}
           </ReactMarkdown>
+          {/* 다운로드 버튼 추가 */}
+          <div className="company-description-download">
+            <PurpleBtn text="📥 설명 다운로드" onClick={downloadDescription} />
+          </div>
         </div>
 
         {/* 기업 뉴스 섹션 */}
