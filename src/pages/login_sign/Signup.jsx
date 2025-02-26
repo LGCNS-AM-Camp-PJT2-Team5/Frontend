@@ -18,8 +18,7 @@ export default function Signup() {
 
     const [preview, setPreview] = useState(null);
     const [fileName, setFileName] = useState("");
-    const [errors, setErrors] = useState({}); // 에러 메시지 상태 추가
-    const [errorMessage, setErrorMessage] = useState(""); // 에러 메시지 상태 추가
+    const [errors, setErrors] = useState({});
 
     const navigate = useNavigate();
 

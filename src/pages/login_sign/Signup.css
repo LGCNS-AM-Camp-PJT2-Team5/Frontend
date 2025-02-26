@@ -66,20 +66,19 @@
     text-align: center;
     margin-top: 15px;
     padding: 10px;
-    background-color: rgba(255, 0, 0, 0.1); /* 연한 빨간 배경 */
+    background-color: rgba(255, 0, 0, 0.1);
     border: 1px solid rgba(255, 0, 0, 0.3);
     border-radius: 8px;
     animation: fadeIn 0.3s ease-in-out;
 }
 
 .error_message {
-    color: #d32f2f; /* 선명한 빨간색 */
+    color: #d32f2f;
     font-size: 14px;
     font-weight: bold;
     line-height: 1.5;
 }
 
-/* 에러 메시지가 나타날 때 부드러운 애니메이션 */
 @keyframes fadeIn {
     from {
         opacity: 0;
