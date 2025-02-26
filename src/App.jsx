@@ -16,6 +16,7 @@ import CompanyNews from './pages/company_detail/CompanyNews';
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(!!sessionStorage.getItem('accessToken'));
+  const [isAdmin, setIsAdmin] = useState('');
 
   useEffect(() => {
     const token = sessionStorage.getItem("accessToken");
@@ -33,12 +34,11 @@ export default function App() {
 
   return (
     <div className="app">
-      <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />
+      <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} isAdmin={isAdmin} />
       <main className="app_content">
         <Routes>
-
           {/* 로그인, 회원가입 페이지 */}
-          <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+          <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} setIsAdmin={setIsAdmin}/>} />
           <Route path="/signup" element={<Signup />} />
             
           {/* 유저 페이지 */}
