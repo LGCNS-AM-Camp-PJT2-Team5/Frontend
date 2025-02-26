@@ -44,7 +44,7 @@
     align-items: flex-start;
 }
 
-input[name="name"] {
+.input[name="name"] {
     width: 100% !important;  /* 부모 크기만큼 확장 */
     max-width: 500px !important; /* 최대 너비 제한 */
     min-width: 390px !important; /* 최소 너비 설정 */
