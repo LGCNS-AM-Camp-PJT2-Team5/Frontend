@@ -1,5 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import "./CompanyDetail.css";
+import Title from "../../components/common/Title";
 
 export default function CompanyNews() {
   const location = useLocation();
@@ -11,16 +13,21 @@ export default function CompanyNews() {
 
   return (
     <div className="company-news-container">
-      <h1>{company.name} 기사</h1>
+      <Title mainTitle2={`${company.name} 기사`} />
       <div className="news-list">
         {news.map((item, index) => (
-          <div key={index} className="news-item">
+          <a
+            key={index}
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="news-item"
+            style={{ textDecoration: "none", color: "inherit" }} // 기본 링크 스타일 제거
+          >
             <h3>{item.title}</h3>
             <p className="news-date">{new Date(item.publishedDate).toLocaleDateString()}</p>
-            <a href={item.link} target="_blank" rel="noopener noreferrer" className="news-link">
-              자세히 보기 →
-            </a>
-          </div>
+            <p className="news-link">자세히 보기 →</p>
+          </a>
         ))}
       </div>
     </div>

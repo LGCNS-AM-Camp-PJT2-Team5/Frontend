@@ -1,0 +1,111 @@
+.company-detail-container-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.company-detail-container {
+    max-width: 1200px;
+    margin-block: 30px;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    border: #ddd 1px solid;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .company-description {
+    margin-bottom: 30px;
+    line-height: 1.6;
+    font-size: 16px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .loading, .error {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  
+  .company-news-section {
+    margin-top: 50px;
+  }
+
+  .news-link{
+    transition: transform 0.3s ease;
+    overflow: hidden;
+  }
+
+  .news-link:hover{
+    transform: translateY(-10px);
+  }
+
+  .news-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+  }
+  
+  .news-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 35px;
+    text-align: left;
+    width: 300px;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .news-item:hover {
+    transform: translateY(-10px);
+  }
+  
+  .news-item h3 {
+    font-size: 20px;
+    margin: 15px 0;
+    color: #5d5a88;
+  }
+  
+  .news-date {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 15px;
+  }
+  
+  .news-item a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #6a5acd;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .news-item a:hover {
+    color: #483d8b;
+  }
+  
+  .news-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #5d5a88, #9795b5);
+    transition: width 0.3s ease, left 0.3s ease;
+  }
+  
+  .news-item:hover::after {
+    width: 100%;
+    left: 0;
+  }

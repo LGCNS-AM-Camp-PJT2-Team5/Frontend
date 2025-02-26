@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Title from "../../components/common/Title";
 import ReactMarkdown from "react-markdown";
+import "./CompanyDetail.css";
 
 export default function CompanyDetail() {
   const { companyId } = useParams();
@@ -46,41 +47,47 @@ export default function CompanyDetail() {
   );
 
   return (
-    <div className="company-detail-container">
-      <Title mainTitle2={company.name} />
-      
-      {/* 회사 설명 섹션 */}
-      <div className="company-description">
-        <ReactMarkdown
-          components={{
-            strong: CustomBold, // strong 태그를 커스터마이징
-            li: CustomListItem, // 목록(li) 태그를 커스터마이징
-          }}
-        >
-          {company.description}
-        </ReactMarkdown>
-      </div>
+    <div className="company-detail-container-wrapper">
+      <div className="company-detail-container">
+        <Title mainTitle2={company.name} />
+        
+        {/* 회사 설명 섹션 */}
+        <div className="company-description">
+          <ReactMarkdown
+            components={{
+              strong: CustomBold, // strong 태그를 커스터마이징
+              li: CustomListItem, // 목록(li) 태그를 커스터마이징
+            }}
+          >
+            {company.description}
+          </ReactMarkdown>
+        </div>
 
-      {/* 기업 뉴스 섹션 */}
-      <div className="company-news-section">
-        <h2
-          className="news-link"
-          onClick={() => navigate(`/company/${companyId}/news`, { state: { company, news } })}
-          style={{ cursor: "pointer", color: "#6a5acd", textDecoration: "underline" }}
-        >
-          + {company.name} 기사 더 보기
-        </h2>
+        {/* 기업 뉴스 섹션 */}
+        <div className="company-news-section">
+          <h2
+            className="news-link"
+            onClick={() => navigate(`/company/${companyId}/news`, { state: { company, news } })}
+            style={{ cursor: "pointer", color: "#5d5a88"}}
+          >
+            ➕ {company.name} 기사 더 보기
+          </h2>
 
-        <div className="news-list">
-          {news.slice(0, 3).map((item, index) => (
-            <div key={index} className="news-item">
-              <h3>{item.title}</h3>
-              <p className="news-date">{new Date(item.publishedDate).toLocaleDateString()}</p>
-              <a href={item.link} target="_blank" rel="noopener noreferrer" className="news-link">
-                자세히 보기 →
+          <div className="news-list">
+            {news.slice(0, 3).map((item, index) => (
+              <a
+                key={index}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="news-item"
+              >
+                <h3>{item.title}</h3>
+                <p className="news-date">{new Date(item.publishedDate).toLocaleDateString()}</p>
+                <div >자세히 보기 →</div>
               </a>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
