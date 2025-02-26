@@ -114,16 +114,16 @@ const CompanyList = () => {
           // 관심 기업 목록 렌더링
           <div className="company-grid">
             {companies
-              .filter((company) => favoriteCompanies.includes(company.name)) // 관심 기업 필터링
+              .filter((company) => favoriteCompanies.includes(company.id)) // 회사 ID를 기준으로 필터링
               .map((company) => (
-                <div
-                  key={company.id}
-                  className="company-card favorite"
-                  onClick={() => handleCompanyClick(company.id)}
-                >
-                  <h3>{company.name}</h3>
-                </div>
-              ))}
+              <div
+                key={company.id}
+                className="company-card favorite"
+                onClick={() => handleCompanyClick(company.id)}
+              >
+                <h3>{company.name}</h3>
+              </div>
+            ))}
           </div>
         )}
       </div>
