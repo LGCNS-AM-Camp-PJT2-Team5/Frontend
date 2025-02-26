@@ -24,7 +24,7 @@ export default function Login({ setIsAuthenticated }) {
       const response = await axios.post("http://localhost:8072/jobbotdari-user/api/auth/signin", credentials, {
         headers: { "Content-Type": "application/json" }
       });
-      const { accessTokenm userRole } = response.data.data;
+      const { accessToken, userRole } = response.data.data;
 
       sessionStorage.setItem("accessToken", accessToken);
       setIsAuthenticated(true);
