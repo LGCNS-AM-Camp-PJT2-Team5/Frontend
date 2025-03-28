@@ -39,7 +39,7 @@ const Profile = () => {
 
       // 파일 URL 가공하여 이미지 표시
       if (file) {
-        setPreview(`http://localhost:8072/jobbotdari-user/api/files/${file.split("/").pop()}`);
+        setPreview(`${file}`);
       } else {
         setPreview(defaultProfile);
       }
