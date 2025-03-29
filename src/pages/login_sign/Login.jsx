@@ -30,7 +30,7 @@ export default function Login({ setIsAuthenticated, setIsAdmin }) {
     console.log("로그인 요청 시작:", credentials);
 
     try {
-      const response = await axios.post("http://localhost:8072/jobbotdari-user/api/auth/signin", credentials, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/jobbotdari-user/api/auth/signin`, credentials, {
         headers: { "Content-Type": "application/json" }
       });
       const { accessToken, userRole } = response.data.data;

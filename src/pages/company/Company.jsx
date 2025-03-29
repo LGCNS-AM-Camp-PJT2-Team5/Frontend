@@ -28,7 +28,7 @@ const CompanyList = () => {
     const fetchCompanies = async () => {
       try {
         // API 호출: 전체 기업 목록
-        const companyResponse = await axios.get("http://localhost:8072/jobbotdari/api/company");
+        const companyResponse = await axios.get(`${import.meta.env.VITE_API_URL}/jobbotdari/api/company`);
         console.log(companyResponse.data);
         setCompanies(companyResponse.data.data.companies);
 
@@ -53,7 +53,7 @@ const CompanyList = () => {
         console.log("Access Token:", accessToken);
 
         // API 호출: 관심 기업 목록
-        const favoriteResponse = await axios.get("http://localhost:8072/jobbotdari-user/api/user/interests", {
+        const favoriteResponse = await axios.get(`${import.meta.env.VITE_API_URL}/jobbotdari-user/api/user/interests`, {
           headers: {
             Authorization: `Bearer ${accessToken}`, // Authorization 헤더 추가
           },

@@ -13,7 +13,7 @@ export default function UserListContainer() {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
-    const userServerBaseUrl = "http://localhost:8072/jobbotdari-user";
+    const userServerBaseUrl = `${import.meta.env.VITE_API_URL}/jobbotdari-user`;
 
     // 로컬 스토리지에서 accessToken 가져오기
     const getAccessToken = () => {

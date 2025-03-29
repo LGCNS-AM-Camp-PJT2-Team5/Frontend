@@ -17,7 +17,7 @@ export default function CompanyDetail() {
   useEffect(() => {
     const fetchCompanyDetail = async () => {
       try {
-        const response = await axios.get(`http://localhost:8072/jobbotdari/api/company/${companyId}`);
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/jobbotdari/api/company/${companyId}`);
         setCompany(response.data.data.company);
         setNews(response.data.data.news);
       } catch (err) {

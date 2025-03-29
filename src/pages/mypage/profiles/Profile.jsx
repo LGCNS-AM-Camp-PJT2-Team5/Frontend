@@ -30,7 +30,7 @@ const Profile = () => {
   const fetchProfile = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:8072/jobbotdari-user/api/profile", {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/jobbotdari-user/api/profile`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
 
@@ -137,7 +137,7 @@ const Profile = () => {
     }
 
     try {
-      await axios.patch("http://localhost:8072/jobbotdari-user/api/profile", profileDataToSend, {
+      await axios.patch(`${import.meta.env.VITE_API_URL}/jobbotdari-user/api/profile`, profileDataToSend, {
         headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "multipart/form-data" },
       });
 

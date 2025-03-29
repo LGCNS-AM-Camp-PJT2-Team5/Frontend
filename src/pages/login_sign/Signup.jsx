@@ -107,7 +107,7 @@ export default function Signup() {
 
         try {
             const response = await axios.post(
-                "http://localhost:8072/jobbotdari-user/api/auth/signup",
+                `${import.meta.env.VITE_API_URL}/jobbotdari-user/api/auth/signup`,
                 formDataToSend,
                 { headers: { "Content-Type": "multipart/form-data" } }
             );
